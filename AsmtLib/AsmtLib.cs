@@ -139,8 +139,6 @@ namespace AsmtLib
                 char[] charArr = input.ToCharArray();
 
             }
-
-
         }
     }
 }
