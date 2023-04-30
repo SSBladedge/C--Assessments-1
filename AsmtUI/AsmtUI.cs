@@ -78,12 +78,17 @@ namespace AssessmentUI
             }
             else if (choice == "4")
             {
-                Lib.oddPosElems();
+                Lib.OddPosElems();
                 ReDo();
             }
             else if (choice == "5")
             {
-                Lib.totalNum();
+                Lib.TotalNum();
+                ReDo();
+            }
+            else if (choice == "6")
+            {
+                // Lib.Palindrome();
                 ReDo();
             }
 
