@@ -73,12 +73,19 @@ namespace AsmtLib
             else
             {
                 Console.WriteLine("Please enter a value to search for in the list: ");
-                string? srchVal = Console.ReadLine();
+                string? inputVal = Console.ReadLine();
+                int intVal = Convert.ToInt32(inputVal);
+                bool found = false;
 
                 for (int i = 0; i < arr.Count; i++)
                 {
-                    
+                    if (arr[i] == intVal)
+                        found = true;
                 }
+                if (found == true)
+                    Console.WriteLine("We found your input!!");
+                else
+                    Console.WriteLine("We could not find your input");
             }
         }
     }
