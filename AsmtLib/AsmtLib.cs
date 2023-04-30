@@ -89,7 +89,7 @@ namespace AsmtLib
             }
         }
 
-        public static void oddPosElems()
+        public static void OddPosElems()
         {
 
             List<int> arr = GetList();
@@ -110,7 +110,7 @@ namespace AsmtLib
             }
         }
 
-        public static void totalNum()
+        public static void TotalNum()
         {
 
             List<int> arr = GetList();
@@ -121,7 +121,10 @@ namespace AsmtLib
 
             else
             {
-
+                int total = 0;
+                for (int i = 0; i < arr.Count; i++)
+                    total += arr[i];
+                Console.WriteLine($"Total is {total}");
             }
         }
 
@@ -131,7 +134,11 @@ namespace AsmtLib
             string? input = Console.ReadLine();
             bool isPalindrome = true;
 
-
+            if (input != null)
+            {
+                char[] charArr = input.ToCharArray();
+                charArr.
+            }
 
 
         }
