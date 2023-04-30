@@ -132,7 +132,7 @@ namespace AsmtLib
         {
             Console.WriteLine("Please input a string for analysis: ");
             string? input = Console.ReadLine();
-            bool isPalindrome = true;
+            // bool isPalindrome = true;
 
             if (input != null)
             {

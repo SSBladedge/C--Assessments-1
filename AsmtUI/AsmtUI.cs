@@ -100,9 +100,17 @@ namespace AssessmentUI
             string? choice = Console.ReadLine()!;
             string theChoice = choice.ToUpper();
             if (theChoice == "Y")
+            {
+                Console.Clear();
                 UI();
+            }
+
             else
+            {
+                Console.Clear();
                 Console.WriteLine("Thank you for your time");
+            }
+
         }
     }
 }
