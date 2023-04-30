@@ -137,7 +137,7 @@ namespace AsmtLib
             if (input != null)
             {
                 char[] charArr = input.ToCharArray();
-                charArr.
+
             }
 
 
