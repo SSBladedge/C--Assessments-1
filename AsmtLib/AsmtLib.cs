@@ -88,61 +88,6 @@ namespace AsmtLib
                     Console.WriteLine("We could not find your input");
             }
         }
-
-        public static void OddPosElems()
-        {
-
-            List<int> arr = GetList();
-            if (arr == null || arr.Count == 0)
-            {
-                Console.WriteLine("Please add values to the list");
-            }
-
-            else
-            {
-                List<int> oddList = new List<int>();
-                for (int i = 0; i < arr.Count; i++)
-                {
-                    oddList.Add(arr[i]);
-                    i += 1;
-                }
-                Console.WriteLine(String.Join(',', oddList));
-            }
-        }
-
-        public static void TotalNum()
-        {
-
-            List<int> arr = GetList();
-            if (arr == null || arr.Count == 0)
-            {
-                Console.WriteLine("Please add values to the list");
-            }
-
-            else
-            {
-                int total = 0;
-
-                for (int i = 0; i < arr.Count; i++)
-                    total += arr[i];
-                Console.WriteLine($"Total is {total}");
-            }
-        }
-
-        public static void Palindrome()
-        {
-            Console.WriteLine("Please input a string for analysis: ");
-            string? input = Console.ReadLine();
-            bool isPalindrome = true;
-
-            if (input != null)
-            {
-                char[] charArr = input.ToCharArray();
-
-            }
-
-
-        }
     }
 }
 
