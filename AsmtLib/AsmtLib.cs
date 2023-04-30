@@ -124,6 +124,14 @@ namespace AsmtLib
 
             }
         }
+
+        public static void Palindrome()
+        {
+            Console.WriteLine("Please input a string for analysis: ");
+            string? input = Console.ReadLine();
+
+
+        }
     }
 }
 
