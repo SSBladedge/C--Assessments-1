@@ -88,7 +88,7 @@ namespace AssessmentUI
             }
             else if (choice == "6")
             {
-                // Lib.Palindrome();
+                Lib.Palindrome();
                 ReDo();
             }
 

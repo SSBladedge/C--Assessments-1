@@ -136,8 +136,10 @@ namespace AsmtLib
 
             if (input != null)
             {
-                char[] charArr = input.ToCharArray();
+                List<char> inputChar = new List<char>();
+                inputChar.AddRange(input);
 
+                inputChar.ForEach(System.Console.WriteLine);
             }
         }
     }
