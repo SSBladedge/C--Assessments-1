@@ -1,3 +1,5 @@
+using System.Text.RegularExpressions;
+
 namespace AsmtLib
 {
     public class Lib
@@ -132,16 +134,30 @@ namespace AsmtLib
         {
             Console.WriteLine("Please input a string for analysis: ");
             string? input = Console.ReadLine();
-            // bool isPalindrome = true;
 
             if (input != null)
             {
-                List<char> inputChar = new List<char>();
-                inputChar.AddRange(input);
+                string noSpace = Regex.Replace(input, @"\s+", "");
+                bool isPalindrome = true;
+                int l = noSpace.Length;
+                int r = (l % 2 == 0) ? l / 2 : Convert.ToInt32(Math.Floor(Convert.ToDecimal(l / 2)));
 
-                inputChar.ForEach(System.Console.WriteLine);
+                for (int i = 0; i < r; i++)
+                {
+                    if (noSpace[i] != noSpace[l - i - 1])
+                    {
+                        isPalindrome = false;
+                        break;
+                    }
+                }
+                if (isPalindrome)
+                    Console.WriteLine("Your statement was a palindrome");
+                else
+                    Console.WriteLine("Your statement was not a palindrome");
             }
         }
+
+
     }
 }
 
