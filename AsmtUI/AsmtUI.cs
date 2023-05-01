@@ -7,7 +7,7 @@ namespace AssessmentUI
     {
         static void Main(string[] args)
         {
-            // Welcome();
+            Welcome();
             UI();
 
         }
@@ -91,7 +91,21 @@ namespace AssessmentUI
                 Lib.Palindrome();
                 ReDo();
             }
-
+            else if (choice == "7")
+            {
+                Lib.SumWithFor();
+                ReDo();
+            }
+            else if (choice == "8")
+            {
+                Lib.SumWithWhile();
+                ReDo();
+            }
+            else if (choice == "9")
+            {
+                Lib.SumWithMethod();
+                ReDo();
+            }
         }
 
         private static void ReDo()

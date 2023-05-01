@@ -125,7 +125,7 @@ namespace AsmtLib
             {
                 int total = 0;
                 for (int i = 0; i < arr.Count; i++)
-                    total += arr[i];
+                    total++;
                 Console.WriteLine($"Total is {total}");
             }
         }
@@ -157,7 +157,56 @@ namespace AsmtLib
             }
         }
 
+        public static void SumWithFor()
+        {
+            List<int> arr = GetList();
+            if (arr == null || arr.Count == 0)
+            {
+                Console.WriteLine("Please add values to the list");
+            }
 
+            else
+            {
+                int total = 0;
+                for (int i = 0; i < arr.Count; i++)
+                    total += arr[i];
+                Console.WriteLine($"Total is {total}");
+            }
+        }
+
+        public static void SumWithWhile()
+        {
+            List<int> arr = GetList();
+            if (arr == null || arr.Count == 0)
+            {
+                Console.WriteLine("Please add values to the list");
+            }
+
+            else
+            {
+                int i = 0;
+                int total = 0;
+
+                while (i < arr.Count)
+                {
+                    total += arr[i];
+                    i++;
+                }
+                Console.WriteLine($"Total is {total}");
+            }
+        }
+
+        public static void SumWithMethod()
+        {
+            List<int> arr = GetList();
+            if (arr == null || arr.Count == 0)
+            {
+                Console.WriteLine("Please add values to the list");
+            }
+
+            else
+                Console.WriteLine(arr.AsQueryable().Sum());
+        }
     }
 }
 
