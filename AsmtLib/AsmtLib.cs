@@ -1,5 +1,6 @@
 using System.Text.RegularExpressions;
 
+//Rename the methods below 
 namespace AsmtLib
 {
     public class Lib
@@ -106,7 +107,7 @@ namespace AsmtLib
                 for (int i = 0; i < arr.Count; i++)
                 {
                     oddList.Add(arr[i]);
-                    i += 1;
+                    i++;
                 }
                 Console.WriteLine(String.Join(',', oddList));
             }
@@ -144,7 +145,7 @@ namespace AsmtLib
 
                 for (int i = 0; i < r; i++)
                 {
-                    if (noSpace[i] != noSpace[l - i - 1])
+                    if (!char.Equals(noSpace[i], noSpace[l - i - 1], StringComparison.OrdinalIgnoreCase)) //Complete the if statement
                     {
                         isPalindrome = false;
                         break;
