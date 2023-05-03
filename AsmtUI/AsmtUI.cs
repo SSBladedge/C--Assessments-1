@@ -18,7 +18,7 @@ namespace AssessmentUI
             Console.WriteLine("What is your name?");
             string? name = Console.ReadLine();
 
-            // Console.WriteLine($"{Greeting()}, {name}");
+            Console.Clear();
             Console.WriteLine("{0}, {1}", Greeting(), name);
         }
 
@@ -36,7 +36,7 @@ namespace AssessmentUI
 
         private static void UI()
         {
-            string[] tasks = new string[9]
+            string[] tasks = new string[10]
             {
                 "Largest Number in a list",
                 "Reverse list in place",
@@ -46,7 +46,8 @@ namespace AssessmentUI
                 "Is string a palindrome",
                 "Sum of numbers in list (for)",
                 "Sum of numbers in list (while)",
-                "Sum of numbers in list (method)"
+                "Sum of numbers in list (method)",
+                "Guess the number!"
             };
 
             Console.WriteLine("Please select from the available options below:");
@@ -63,47 +64,62 @@ namespace AssessmentUI
 
             if (choice == "1")
             {
+                Console.Clear();
                 Lib.LargestNumber();
                 ReDo();
             }
             else if (choice == "2")
             {
-                Lib.RevList();
+                Console.Clear();
+                Lib.ReverseList();
                 ReDo();
             }
             else if (choice == "3")
             {
-                Lib.ChkList();
+                Console.Clear();
+                Lib.CheckList();
                 ReDo();
             }
             else if (choice == "4")
             {
-                Lib.OddPosElems();
+                Console.Clear();
+                Lib.ElementsInOddPosition();
                 ReDo();
             }
             else if (choice == "5")
             {
-                Lib.TotalNum();
+                Console.Clear();
+                Lib.TotalNumber();
                 ReDo();
             }
             else if (choice == "6")
             {
+                Console.Clear();
                 Lib.Palindrome();
                 ReDo();
             }
             else if (choice == "7")
             {
+                Console.Clear();
                 Lib.SumWithFor();
                 ReDo();
             }
             else if (choice == "8")
             {
+                Console.Clear();
                 Lib.SumWithWhile();
                 ReDo();
             }
             else if (choice == "9")
             {
+                Console.Clear();
                 Lib.SumWithMethod();
+                ReDo();
+            }
+            else if (choice == "10")
+            {
+                Console.Clear();
+                Lib.GuessTheNumber();
                 ReDo();
             }
         }

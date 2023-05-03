@@ -42,7 +42,7 @@ namespace AsmtLib
             }
         }
 
-        public static void RevList()
+        public static void ReverseList()
         {
             List<int> arr = GetList();
             if (arr == null || arr.Count == 0)
@@ -63,7 +63,7 @@ namespace AsmtLib
             }
         }
 
-        public static void ChkList()
+        public static void CheckList()
         {
             //FOR USERS - REPLACE GETLIST() BELOW WITH A COPY OF THE DESIRED LIST TO PARSE THROUGH
 
@@ -76,14 +76,16 @@ namespace AsmtLib
             else
             {
                 Console.WriteLine("Please enter a value to search for in the list: ");
-                string? inputVal = Console.ReadLine();
-                int intVal = Convert.ToInt32(inputVal);
+                int intVal = Convert.ToInt32(Console.ReadLine());
                 bool found = false;
 
                 for (int i = 0; i < arr.Count; i++)
                 {
                     if (arr[i] == intVal)
+                    {
                         found = true;
+                        break;
+                    }
                 }
                 if (found == true)
                     Console.WriteLine("We found your input!!");
@@ -92,7 +94,7 @@ namespace AsmtLib
             }
         }
 
-        public static void OddPosElems()
+        public static void ElementsInOddPosition()
         {
 
             List<int> arr = GetList();
@@ -113,7 +115,7 @@ namespace AsmtLib
             }
         }
 
-        public static void TotalNum()
+        public static void TotalNumber()
         {
 
             List<int> arr = GetList();
@@ -145,11 +147,11 @@ namespace AsmtLib
 
                 for (int i = 0; i < r; i++)
                 {
-                    if (!char.Equals(noSpace[i], noSpace[l - i - 1], StringComparison.OrdinalIgnoreCase)) //Complete the if statement
-                    {
-                        isPalindrome = false;
-                        break;
-                    }
+                    // if (!char.Equals(noSpace[i], noSpace[l - i - 1], StringComparison.OrdinalIgnoreCase)) //Complete the if statement
+                    // {
+                    //     isPalindrome = false;
+                    //     break;
+                    // }
                 }
                 if (isPalindrome)
                     Console.WriteLine("Your statement was a palindrome");
@@ -207,6 +209,48 @@ namespace AsmtLib
 
             else
                 Console.WriteLine(arr.AsQueryable().Sum());
+        }
+
+
+        public static void GuessTheNumber()
+        {
+            int maxNum = 20;
+            Random rnd = new Random();
+
+            int rndNum = rnd.Next(maxNum + 1);
+            int guessedNum = GuessChecker(maxNum);
+
+            Console.WriteLine($"Guessed number is {guessedNum}");
+
+            // int currentProg;
+            // int lastProg;
+        }
+
+        private static int GuessChecker(int max)
+        {
+            Console.WriteLine($"Guess a number inclusively between 0 and {max}: ");
+            try
+            {
+                int guess = Convert.ToInt32(Console.ReadLine());
+                if (guess < 0 || guess > max)
+                {
+                    Console.Clear();
+                    Console.WriteLine("number needs to be between 0 and 20");
+                    GuessChecker(max);
+                    return 0;
+                }
+                else
+                {
+                    return guess;
+                }
+            }
+            catch (Exception)
+            {
+                Console.Clear();
+                Console.WriteLine("Please use a number");
+                GuessChecker(max);
+                return 90;
+            }
         }
     }
 }
