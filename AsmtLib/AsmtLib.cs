@@ -148,10 +148,11 @@ namespace AsmtLib
                 for (int i = 0; i < r; i++)
                 {
                     // if (!char.Equals(noSpace[i], noSpace[l - i - 1], StringComparison.OrdinalIgnoreCase)) //Complete the if statement
-                    // {
-                    //     isPalindrome = false;
-                    //     break;
-                    // }
+                    if (noSpace[i] != noSpace[l - i - 1])
+                    {
+                        isPalindrome = false;
+                        break;
+                    }
                 }
                 if (isPalindrome)
                     Console.WriteLine("Your statement was a palindrome");
