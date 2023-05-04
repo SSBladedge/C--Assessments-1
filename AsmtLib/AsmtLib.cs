@@ -214,37 +214,69 @@ namespace AsmtLib
 
         public static void GuessTheNumber()
         {
-            int maxNum = 20;          //Difficulty setting 
+            int maxNum = 20;            //Difficulty setting 
             Random rnd = new Random();
             int rndNum = rnd.Next(maxNum + 1);
+            int guess = GuessUI(maxNum);
 
-            bool repeat = true;
-            int checkInput = 0;
+            GameSetup(guess, rndNum, maxNum);
+        }
 
 
-            while (repeat)
+        private static void GameSetup(int guessVal, int actualVal, int max)
+        {
+            int currentProg = 0;
+            int lastProg = 0;
+            bool gameIsRunning = true;
+
+
+            while (gameIsRunning)
             {
-                checkInput = GuessChecker(maxNum);
-                if (checkInput >= 0)
+                if (guessVal == actualVal)
                 {
-                    Console.WriteLine($"Guessed number is {checkInput}");
-                    Console.WriteLine("It is valid");
-                    repeat = false;
+                    Console.WriteLine("CONGRATS, YOU WON!!");
+                    gameIsRunning = false;
                 }
-                else if (checkInput == -3)
+                else
                 {
-                    Console.Clear();
-                    Console.WriteLine("Please use a 32-bit number");
-                }
-                else if (checkInput == -5)
-                {
-                    Console.Clear();
-                    Console.WriteLine("number needs to be between 0 and 20");
+                    lastProg = currentProg;
+                    currentProg = Math.Abs(guessVal - actualVal);
+
+                    if (currentProg == lastProg)
+                    {
+                        Console.WriteLine("No progress yet");
+                        guessVal = GuessUI(max);
+
+                    }
+
+                    else if (currentProg > lastProg)
+                    {
+                        Console.WriteLine("Getting warmer");
+                        guessVal = GuessUI(max);
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("Getting colder");
+                        guessVal = GuessUI(max);
+                    }
                 }
             }
-            Console.WriteLine($"This is final number: {checkInput}");
-            // int currentProg;
-            // int lastProg;
+        }
+
+        private static int GuessUI(int maxNum)
+        {
+            int checkedInput = 0;
+
+            while (true)
+            {
+                checkedInput = GuessChecker(maxNum);
+                if (checkedInput >= 0)
+                    break;
+                else
+                    Console.WriteLine(ErrorMessage(checkedInput));
+            }
+            return checkedInput;
         }
 
         private static int GuessChecker(int max)
@@ -269,6 +301,21 @@ namespace AsmtLib
             else
             {
                 return -3;
+            }
+        }
+
+
+        private static string ErrorMessage(int errCode)
+        {
+            if (errCode == -3)
+            {
+                Console.Clear();
+                return ("Please use a 32-bit number");
+            }
+            else
+            {
+                Console.Clear();
+                return ("number needs to be between 0 and 20");
             }
         }
     }
