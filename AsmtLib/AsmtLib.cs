@@ -217,11 +217,14 @@ namespace AsmtLib
             int maxNum = 20;          //Difficulty setting 
             Random rnd = new Random();
             int rndNum = rnd.Next(maxNum + 1);
+
             bool repeat = true;
+            int checkInput = 0;
+
 
             while (repeat)
             {
-                int checkInput = GuessChecker(maxNum);
+                checkInput = GuessChecker(maxNum);
                 if (checkInput >= 0)
                 {
                     Console.WriteLine($"Guessed number is {checkInput}");
@@ -239,6 +242,7 @@ namespace AsmtLib
                     Console.WriteLine("number needs to be between 0 and 20");
                 }
             }
+            Console.WriteLine($"This is final number: {checkInput}");
             // int currentProg;
             // int lastProg;
         }
