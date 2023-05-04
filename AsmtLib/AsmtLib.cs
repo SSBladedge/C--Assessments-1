@@ -214,14 +214,31 @@ namespace AsmtLib
 
         public static void GuessTheNumber()
         {
-            int maxNum = 20;
+            int maxNum = 20;          //Difficulty setting 
             Random rnd = new Random();
-
             int rndNum = rnd.Next(maxNum + 1);
-            int guessedNum = GuessChecker(maxNum);
+            bool repeat = true;
 
-            Console.WriteLine($"Guessed number is {guessedNum}");
-
+            while (repeat)
+            {
+                int checkInput = GuessChecker(maxNum);
+                if (checkInput >= 0)
+                {
+                    Console.WriteLine($"Guessed number is {checkInput}");
+                    Console.WriteLine("It is valid");
+                    repeat = false;
+                }
+                else if (checkInput == -3)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Please use a 32-bit number");
+                }
+                else if (checkInput == -5)
+                {
+                    Console.Clear();
+                    Console.WriteLine("number needs to be between 0 and 20");
+                }
+            }
             // int currentProg;
             // int lastProg;
         }
@@ -229,27 +246,25 @@ namespace AsmtLib
         private static int GuessChecker(int max)
         {
             Console.WriteLine($"Guess a number inclusively between 0 and {max}: ");
-            try
+            string? input = Console.ReadLine();
+            int guess;
+
+
+            //Below can be reduced to a terniary operation 
+            if (int.TryParse(input, out guess))
             {
-                int guess = Convert.ToInt32(Console.ReadLine());
                 if (guess < 0 || guess > max)
                 {
-                    Console.Clear();
-                    Console.WriteLine("number needs to be between 0 and 20");
-                    GuessChecker(max);
-                    return 0;
+                    return -5;
                 }
                 else
                 {
                     return guess;
                 }
             }
-            catch (Exception)
+            else
             {
-                Console.Clear();
-                Console.WriteLine("Please use a number");
-                GuessChecker(max);
-                return 90;
+                return -3;
             }
         }
     }
