@@ -47,7 +47,7 @@ namespace AssessmentUI
                 "Sum of numbers in list (for)",
                 "Sum of numbers in list (while)",
                 "Sum of numbers in list (method)",
-                "Guess the number!"
+                "BONUS!! Guess the number!"
             };
 
             Console.WriteLine("Please select from the available options below:");

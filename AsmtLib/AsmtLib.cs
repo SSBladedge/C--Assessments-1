@@ -230,7 +230,6 @@ namespace AsmtLib
             int lastProg = 0;
             bool gameIsRunning = true;
 
-
             while (gameIsRunning)
             {
                 if (guessVal == actualVal)
@@ -243,6 +242,16 @@ namespace AsmtLib
                     lastProg = currentProg;
                     currentProg = Math.Abs(guessVal - actualVal);
 
+                    // if (guessVal > actualVal)
+                    // {
+                    //     Console.WriteLine("Too high");
+                    //     guessVal = GuessUI(max);
+                    // }
+                    // else{
+                    //     Console.WriteLine("Too low");
+                    //     guessVal = GuessUI(max);
+                    // }
+
                     if (currentProg == lastProg)
                     {
                         Console.WriteLine("No progress yet");
@@ -252,13 +261,13 @@ namespace AsmtLib
 
                     else if (currentProg > lastProg)
                     {
-                        Console.WriteLine("Getting warmer");
+                        Console.WriteLine("Getting colder");
                         guessVal = GuessUI(max);
                     }
 
                     else
                     {
-                        Console.WriteLine("Getting colder");
+                        Console.WriteLine("Getting warmer");
                         guessVal = GuessUI(max);
                     }
                 }
